@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+    <hr>
+    {% if redirectionMode %}
+        <h2>You should log in before attempting to see an announce or access to your account</h2>
+    {% else %}
+        <h2>log in !</h2>
+    {% endif %}
+    <form action="{{ path('security_login')}}" method="post">
+        <div class="form-group">
+            <input placeholder="Email address ..." name="_username" required="required"
+            type = "text" class="form-control">
+        </div>
+        <div class="form-group">
+            <input placeholder="Password ..." name="_password" required="required"
+            type = "password" class="form-control">
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-success">Log in</button>
+        </div>
+        <div class="form-group">
+            <a href ="{{path('security_registration')}}">Sign up</a>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block body %}
+    <h1>Let's create a post !</h1>
+    {{form_start(form)}}
+    {{form_row(form.categories,{'attr':{
+            'class' : "custom-control custom-checkbox"}})}}
+    {{form_row(form.content, {'attr' :
+                    {'placeholder' : "Tell them what you are looking for !"}})}}
+    <button type=submit class="btn btn-success">
+        {% if editMode %}
+            Save
+        {% else %}
+            Add my post !
+        {% endif %}
+    </button>
+    {{form_end(form)}}
+{% endblock %}

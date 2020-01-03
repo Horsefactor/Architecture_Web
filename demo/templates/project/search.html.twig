@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Let's search what you are looking for !</h1>
+
+    {{form_start(form)}}
+    {{form_row(form.categories)}}
+    {{form_row(form.type)}}
+    <div class="form-group">
+        <button type="submit" class="btn btn-success">Search</button>
+    </div>
+    {{form_end(form)}}
+
+{% endblock %}

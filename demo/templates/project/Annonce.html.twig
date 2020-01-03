@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <hr>
+    <div align="center">
+    
+    {% for annonce in annonces %}
+    <div class="card border-info mb-3" style="max-width: 20rem;">
+        <div class="card-header"> post n°{{annonce.id}} &nbsp;:&nbsp; {{annonce.user.type}}</div>
+        <div class="card-body">
+            <h4 class="card-title">
+                {{annonce.user.name}}, {{annonce.user.age}} ans
+            </h4>
+            <h5 class="card-title">
+                Categories:
+                {% for category in annonce.categories %} 
+                    {{category.title}},&nbsp;
+                {% endfor %}
+            </h5>
+            <hr class="my-4">
+            <p class= "card-text">
+                {{annonce.content}}
+            </p>
+            <hr>
+            <a href="{{ path('showAnnonce', {'id': annonce.id})}}" class="btn btn-outline-success">Read</a>
+            {% if app.user == annonce.user %}
+                <a href="{{path('post_edit', {'id': annonce.id})}}" class="btn btn-outline-warning">Edit</a>
+                <a href='{{path('delete_post',{'id': annonce.id}) }}' class="btn btn-outline-danger">Delete my post</a>
+            {% endif %}
+        </div>
+        <div class="card-footer text-muted">
+            Writed down on the {{annonce.createdAt | date('d/m/Y')}}
+            at {{annonce.createdAt | date('H:i')}}
+        </div>
+    </div>
+    {% endfor %}
+    </div>
+{% endblock %}

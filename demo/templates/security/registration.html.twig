@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
+{% block title %}Hello SecurityController!{% endblock %}
+
+{% block body %}
+    <h1>Register on FINDJOB</h1>
+    {{form_start(form)}}
+    {{form_row(form.name, {'attr' :
+                    {'placeholder' : "What is your first name ?"
+    }})}}
+    {{form_row(form.surname, {'attr' :
+                    {'placeholder' : "What is you surname ?"
+    }})}}
+    {{form_row(form.type, {'attr' :
+                    {'placeholder' : "What are you looking for ?",
+                     'class' : "custom-control custom-radio"
+    }})}}
+    {{form_row(form.age, {'attr' :
+                    {'placeholder' : "How old are you ?"
+    }})}}
+    {{form_row(form.phoneNumber, {'attr' :
+                    {'placeholder' : "Type your phone number ..."
+    }})}}
+    {{form_row(form.address, {'attr' :
+                    {'placeholder' : "Where do you live ?"
+    }})}}
+    {{form_row(form.email, {'attr' :
+                    {'placeholder' : "You need an email address !"
+    }})}}
+    {{form_row(form.password, {'attr' :
+                    {'placeholder' : "Type your password"
+    }})}}
+    {{form_row(form.confirm_password, {'attr' :
+                    {'placeholder' : "Confirm your password"
+    }})}}
+
+    <button type=submit class="btn btn-success">
+        {% if editMode %}
+        Save
+        {% else %}
+        Register now !
+        {% endif %}
+    </button>
+    {{form_end(form)}}
+{% endblock %}

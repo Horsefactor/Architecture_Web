@@ -1,0 +1,29 @@
+<?php
+
+namespace Symfony\Component\VarExporter\Internal;
+
+return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
+    $o = [
+        clone (($p = &Registry::$prototypes)['Doctrine\\ORM\\Mapping\\OneToMany'] ?? Registry::p('Doctrine\\ORM\\Mapping\\OneToMany')),
+        clone ($p['ApiPlatform\\Core\\Annotation\\ApiSubresource'] ?? Registry::p('ApiPlatform\\Core\\Annotation\\ApiSubresource')),
+    ],
+    null,
+    [
+        'stdClass' => [
+            'mappedBy' => [
+                'user',
+            ],
+            'targetEntity' => [
+                'App\\Entity\\Annonce',
+            ],
+            'orphanRemoval' => [
+                true,
+            ],
+        ],
+    ],
+    [
+        $o[0],
+        $o[1],
+    ],
+    []
+);

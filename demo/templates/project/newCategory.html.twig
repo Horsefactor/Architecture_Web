@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Let's create a category !</h1>
+    {{form_start(form)}}
+    {{form_row(form.title, {'attr' :
+                    {'placeholder' : "Type the name of the category here"
+    }})}}
+    {{form_row(form.text, {'attr' :
+                    {'placeholder' : "Describe the category"
+    }})}}
+    <button type=submit class="btn btn-success">
+        {% if editMode %}
+        Save
+        {% else %}
+        Add now !
+        {% endif %}
+    </button>
+    {{form_end(form)}}
+{% endblock %}

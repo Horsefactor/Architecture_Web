@@ -1,0 +1,28 @@
+<?php return [PHP_INT_MAX, [
+    'api_users_annonces_get_subresource' => [
+        'property' => 'Annonces',
+        'collection' => true,
+        'resource_class' => 'App\\Entity\\Annonce',
+        'shortNames' => [
+            'Annonce',
+            'User',
+        ],
+        'identifiers' => [
+            [
+                'id',
+                'App\\Entity\\User',
+                true,
+            ],
+        ],
+        'operation_name' => 'annonces_get_subresource',
+        'route_name' => 'api_users_annonces_get_subresource',
+        'path' => '/users/{id}/annonces.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+    ],
+]];

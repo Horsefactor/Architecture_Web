@@ -1,0 +1,8 @@
+controllers:
+    resource: ../../src/Controller/
+    type: annotation
+
+# api/config/routes.yaml
+authentication_token:
+    path: /authentication_token
+    methods: ['POST']

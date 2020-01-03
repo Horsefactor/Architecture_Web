@@ -1,0 +1,24 @@
+<div class="card border-light mb-3">
+    <h3 class="card-header"> Post n°{{post.id}}</h3>
+    <div class="card-body">
+        <h4 class="card-title">{{post.user.name}} {{post.user.surname}}, {{post.user.age}} ans</h4>
+        <h5 class="card-subtitle text-muted">
+            Categories:
+            <span *ngFor="let category of post.categories">{{category.title}}, </span>
+        </h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">email : {{post.user.email}}</li>
+            <li class="list-group-item">phone number : {{post.user.phoneNumber}}</li>
+        </ul>
+    </div>
+    <hr class="my-4">
+    <div class ="card-body">
+        <p>{{post.content}}</p>
+        <a routerLink="../" class="btn btn-primary">Return</a>
+    </div>
+    <div class ="card-footer text-muted">
+        Writed down on {{post.createdAT | date}}
+    </div>
+</div>

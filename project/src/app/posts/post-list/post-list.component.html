@@ -1,0 +1,30 @@
+<div class="card text-white border-success bg-primary mb-3">
+    <div class="container">
+        <div align="center">
+            <br/>
+            <div *ngFor="let post of posts" class="card border-success mb-3" style="max-width: 20rem;">
+                <div class="card-header"> post n°{{post.id}} &nbsp;:&nbsp; {{post.user.type}}</div>
+                <div class="card-body">
+                    <h4 class="card-title">
+                        {{post.user.name}} &nbsp;{{post.user.surname}}: &nbsp;{{post.user.age}}ans
+                    </h4>
+                    <h5 class="card-title" >
+                        Categories:
+                        <span *ngFor="let category of post.categories">{{category.title}}, </span>
+                    </h5>
+                    <hr class="my-4">
+                    <p class= "card-text">
+                        {{post.content}}
+                    </p>
+                    <hr>
+                    <div (click)="seePost(post)" class="btn btn-outline-success">Read</div>
+                    <div (click)="editPost(post)" class="btn btn-outline-warning">Edit</div>
+                    <div (click)="deletePost(post)" class="btn btn-outline-danger">Delete my post</div>
+                </div>
+                <div class="card-footer text-muted">
+                    Writed down on the {{post.createdAT | date}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

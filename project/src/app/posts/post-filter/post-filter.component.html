@@ -1,0 +1,35 @@
+<div class="container">
+    <h3 class="card-header">Filter posts :</h3>
+    <form [formGroup]="filterForm" (ngSubmit)="onSubmit()">
+        <fieldset class="card-body">
+            <div class="form-group">
+                <label class="card-title">Categories : </label>
+                <ul class="list-group list-group-flush" formArrayName="categories" *ngFor="let category of filterForm.controls.categories.controls; let i = index">
+                    <li class="list-group-item">
+                        <input type="checkbox" [formControlName]="i" [value]="categories[i].id">
+                        <label for="i">{{categories[i].title}}</label>  
+                    </li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <label class="card-title">Post type :</label>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <input type='radio' formControlName="type" value="Applicant"/>
+                        <label for="type">Demand</label>
+                    </li>
+                    <li class="list-group-item">
+                        <input type='radio' formControlName="type" value="Employer"/>
+                        <label for="type">Offer</label>
+                    </li>
+                </ul>
+            </div>
+            <div class="form-group">
+                <button [disabled]="loading" class="btn btn-success btn-lg btn-block">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Filter
+                </button>
+            </div>
+        </fieldset>
+    </form>
+</div>    

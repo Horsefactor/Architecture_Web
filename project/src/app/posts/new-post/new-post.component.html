@@ -1,0 +1,29 @@
+<div class="card text-white border-success bg-primary mb-3">
+    <div class="container">
+        <br/>
+        <h2>let's create an post !</h2>
+        <form [formGroup]="postForm" (ngSubmit)="onSubmit()">
+            <fieldset>
+                 <div class="form-group" formArrayName="categories" *ngFor="let category of postForm.controls.categories.controls; let i = index">
+                    <input type="checkbox" [formControlName]="i" [value]="categories[i].id">
+                    <label for="i">{{categories[i].title}}</label>
+                 </div>
+                <div class="form-group">
+                    <label for="content" class="control-label">Content</label>
+                    <textarea class="form-control" formControlName="content" [ngClass]="{ 'is-invalid': submitted && f.content.errors }" rows="10" cols="30">
+                    </textarea>
+                    <div *ngIf="submitted && f.content.errors" class="invalid-feedback">
+                        <div *ngIf="f.content.errors.required">A content is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button [disabled]="loading" class="btn btn-success btn-lg btn-block">
+                        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                        Add a Post
+                    </button>
+                    <a routerLink="/account" class="btn btn-link">Cancel</a>
+                </div>
+            </fieldset>
+        </form>
+    </div>    
+</div>

@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
+use Exception;
 use App\Entity\Annonce;
 use App\Entity\Category;
 use App\Form\SearchType;
+use App\Form\SearchBarType;
 use App\Form\AnnonceFormType;
-use App\Repository\AnnonceRepository;
 use App\Form\AddCategoryFormType;
+use App\Repository\AnnonceRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Security;
-use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -118,7 +120,7 @@ class ProjectController extends AbstractController
      * @Route("/main/{id}/editCat", name="cat_edit")
      */
     public function newCat(Category $category = null, Request $request, 
-                            ObjectManager $manager){ 
+                            EntityManagerInterface $manager){ 
         if(!$category){
             $category = new Category();
         }
@@ -142,7 +144,7 @@ class ProjectController extends AbstractController
      * @Route("/main/{id}/edit", name="post_edit")
      */
     public function newPost(Annonce $annonce = null, Request $request, 
-                            ObjectManager $manager, Security $security){ 
+                            EntityManagerInterface $manager, Security $security){ 
         if(!$annonce){
             $annonce = new Annonce();
         }
@@ -168,6 +170,7 @@ class ProjectController extends AbstractController
             'editMode' => $annonce->getId() !== null
         ]);
     }
+
     /**
      * @Route("/main/{id}", name="showAnnonce")
      */
@@ -184,5 +187,30 @@ class ProjectController extends AbstractController
         return $this->render('project/show.html.twig',[
             'annonce' => $annonce
         ]);
+    }
+
+    public function search(Request $request, Security $security){
+        $form = $this->createForm(SearchBarType::class);
+        
+        return $this->render('project/searchBar.html.twig',[
+            'form' => $form->createView()
+        ]);
+    }
+
+    /**
+     * @Route("/handleSearch", name="handleSearch")
+     * @param Request $request
+     */
+    public function handleSearch(Request $request){
+        $id = $request->request->get('search_bar')['query'];
+        if($id){
+            $repo = $this->getDoctrine()->getRepository(Annonce::class);
+            $post = $repo->find($id);
+        }
+        
+        return $this->render('project/show.html.twig',[
+            'annonce' => $post
+        ]);
+
     }
 }

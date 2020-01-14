@@ -11,7 +11,8 @@ export class CategoryJson {
         );
     }
 
-    constructor(public id: string,
-                public title: string) {
-    }
+    constructor(
+        public id: string,
+        public title: string
+    ) {}
 }

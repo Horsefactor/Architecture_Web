@@ -12,7 +12,7 @@ import { AuthGuard } from './auth/auth.guard';
 import { NewPostComponent } from './posts/new-post/new-post.component';
 import { MyPostsComponent } from './posts/my-posts/my-posts.component';
 
-
+//routes and their guard (if a guard is required)
 const routes: Routes = [
   {path: '', component: HomeComponent, pathMatch: 'full'},
   {path: 'account', component: AccountComponent, canActivate: [AuthGuard]},
@@ -39,6 +39,8 @@ const routes: Routes = [
 })
 
 export class AppRoutingModule { }
+
+//avoid to import 2times same module
 export const routingComponents = [
   PostsComponent,
   PostViewComponent,

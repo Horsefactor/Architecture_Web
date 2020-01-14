@@ -7,6 +7,7 @@ use App\Entity\Annonce;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
 
+// class to create posts in database
 class AnnonceFixtures extends Fixture
 {
     

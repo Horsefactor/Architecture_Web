@@ -1,0 +1,26 @@
+{{
+    form_start(form, {
+        'attr': {
+            'class': 'form-inline my-2 my-lg-0',
+            'action': path('handleSearch')
+        }
+    })
+}}
+{{
+    form_widget(form.query, {
+        'attr': {
+            'class' : "form-control mr-sm-2",
+            'type' : 'number',
+        }
+    })
+}}
+{{
+    form_widget(form.search, {
+        'attr': {
+            'class' : "btn btn-secondary my-2 my-sm-0"
+        }
+    })
+}}
+{{
+    form_end(form)
+}}

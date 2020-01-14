@@ -7,6 +7,7 @@ import { AuthService } from '../shared/security/auth.service';
 export class JwtInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService) { }
 
+    // intercept request and wrap them with the right token to authorize the request
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         // add authorization header with jwt token if available
         let currentUser = this.authService.currentUserValue;

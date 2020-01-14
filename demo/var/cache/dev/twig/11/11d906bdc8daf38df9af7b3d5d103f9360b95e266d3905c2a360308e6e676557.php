@@ -110,25 +110,23 @@ class __TwigTemplate_2db6f7d672063bbcb6bdfc7dbc7a6c009b53046f12c9ad482f945d9fefb
         // line 37
         echo "
                 </ul>
-                <form action=\"";
+                ";
         // line 39
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("search_posts");
-        echo "\" class=\"form-inline my-2 my-lg-0\" method='get'>
-                    <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\" name=\"id\">
-                    <a class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\" placeholder=\"Chercher par ID\">Chercher par ID</a>
-                </form>
+        echo $this->env->getRuntime('Symfony\Bridge\Twig\Extension\HttpKernelRuntime')->renderFragment(Symfony\Bridge\Twig\Extension\HttpKernelExtension::controller("App\\Controller\\ProjectController::search"));
+        // line 41
+        echo "
             </div>
-            </nav>
+        </nav>
         <div class=\"jumbotron\">
             ";
-        // line 46
+        // line 45
         $this->displayBlock('body', $context, $blocks);
-        // line 47
+        // line 46
         echo "        </div>
         ";
-        // line 48
+        // line 47
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 49
+        // line 48
         echo "    </body>
 </html>
 ";
@@ -177,7 +175,7 @@ class __TwigTemplate_2db6f7d672063bbcb6bdfc7dbc7a6c009b53046f12c9ad482f945d9fefb
 
     }
 
-    // line 46
+    // line 45
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -195,7 +193,7 @@ class __TwigTemplate_2db6f7d672063bbcb6bdfc7dbc7a6c009b53046f12c9ad482f945d9fefb
 
     }
 
-    // line 48
+    // line 47
     public function block_javascripts($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -225,7 +223,7 @@ class __TwigTemplate_2db6f7d672063bbcb6bdfc7dbc7a6c009b53046f12c9ad482f945d9fefb
 
     public function getDebugInfo()
     {
-        return array (  199 => 48,  181 => 46,  163 => 7,  144 => 5,  132 => 49,  130 => 48,  127 => 47,  125 => 46,  115 => 39,  111 => 37,  105 => 34,  102 => 33,  96 => 30,  93 => 29,  91 => 28,  85 => 25,  79 => 22,  73 => 19,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
+        return array (  197 => 47,  179 => 45,  161 => 7,  142 => 5,  130 => 48,  128 => 47,  125 => 46,  123 => 45,  117 => 41,  115 => 39,  111 => 37,  105 => 34,  102 => 33,  96 => 30,  93 => 29,  91 => 28,  85 => 25,  79 => 22,  73 => 19,  60 => 8,  58 => 7,  53 => 5,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -268,18 +266,17 @@ class __TwigTemplate_2db6f7d672063bbcb6bdfc7dbc7a6c009b53046f12c9ad482f945d9fefb
                     {% endif %}
 
                 </ul>
-                <form action=\"{{ path('search_posts')}}\" class=\"form-inline my-2 my-lg-0\" method='get'>
-                    <input class=\"form-control mr-sm-2\" type=\"text\" placeholder=\"Search\" name=\"id\">
-                    <a class=\"btn btn-secondary my-2 my-sm-0\" type=\"submit\" placeholder=\"Chercher par ID\">Chercher par ID</a>
-                </form>
+                {{render(controller(
+                    'App\\\\Controller\\\\ProjectController::search'
+                ))}}
             </div>
-            </nav>
+        </nav>
         <div class=\"jumbotron\">
             {% block body %}{% endblock %}
         </div>
         {% block javascripts %}{% endblock %}
     </body>
 </html>
-", "base.html.twig", "C:\\Users\\Thiba\\OneDrive\\Documents\\Programmation\\Architecture_Web\\demo\\templates\\base.html.twig");
+", "base.html.twig", "C:\\Users\\Thiba\\OneDrive\\Documents\\Ecam\\Programmation\\Architecture_Web\\demo\\templates\\base.html.twig");
     }
 }

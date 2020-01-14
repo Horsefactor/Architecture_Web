@@ -36,12 +36,11 @@
                     {% endif %}
 
                 </ul>
-                <form action="{{ path('search_posts')}}" class="form-inline my-2 my-lg-0" method='get'>
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" name="id">
-                    <a class="btn btn-secondary my-2 my-sm-0" type="submit" placeholder="Chercher par ID">Chercher par ID</a>
-                </form>
+                {{render(controller(
+                    'App\\Controller\\ProjectController::search'
+                ))}}
             </div>
-            </nav>
+        </nav>
         <div class="jumbotron">
             {% block body %}{% endblock %}
         </div>

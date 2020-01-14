@@ -1,24 +1,11 @@
 <div class="card text-white border-success bg-primary mb-3">
     <div class="container">
         <br/>
-        <div>
-            <p>{{currentUser.name}}</p>
-            <p>{{currentUser.surname}}</p>
-            <p>{{currentUser.age}}</p>
-            <p>{{currentUser.email}}</p>
-            <p>{{currentUser.phoneNumber}}</p>
-            <p>{{currentUser.type}}</p>
-            <p>{{currentUser.id}}</p>
-
-            <p>You're logged in with Angular 8!!</p>
-            <h3>All registered users:</h3>
-            <ul>
-                <li *ngFor="let user of users">
-                    {{user.username}} ({{user.name}} {{user.surname}})
-                    - <a (click)="deleteUser(user.id)" class="text-danger">Delete</a>
-                </li>
-            </ul>
-        </div>
+        <p>
+            Welcome on findAJob web site,<br/>
+            You need to login to get full functionnalities of the website,<br/>
+            Enjoy !
+        </p>
     </div>
 </div>
 

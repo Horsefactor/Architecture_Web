@@ -18,8 +18,10 @@
                     </p>
                     <hr>
                     <div (click)="seePost(post)" class="btn btn-outline-success">Read</div>
-                    <div (click)="editPost(post)" class="btn btn-outline-warning">Edit</div>
-                    <div (click)="deletePost(post)" class="btn btn-outline-danger">Delete my post</div>
+                    <span *ngIf="currentUserEmail == post.user.email">
+                        <div (click)="editPost(post)" class="btn btn-outline-warning">Edit</div>
+                        <div (click)="deletePost(post)" class="btn btn-outline-danger">Delete</div>
+                    </span>
                 </div>
                 <div class="card-footer text-muted">
                     Writed down on the {{post.createdAT | date}}

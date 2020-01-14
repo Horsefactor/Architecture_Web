@@ -15,7 +15,7 @@ import { first } from 'rxjs/operators';
 
 export class MyPostsComponent implements OnInit {
   posts:GetPost[];
-  currentUser:User;
+  currentUserEmail:string;
 
   constructor(
     private postService : PostService,
@@ -24,10 +24,11 @@ export class MyPostsComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.currentUser = this.authService.currentUserValue;
+    this.currentUserEmail = this.authService.currentUserValue.email;
     this.loadPosts();
   }
 
+  //load all my posts
   loadPosts() {
     this.postService.getMyPosts()
       .pipe(first())
@@ -35,18 +36,19 @@ export class MyPostsComponent implements OnInit {
         this.posts = data['hydra:member']
       })
   }
-
+  //see details of a post on a click
   seePost(post: { id: number; }){
     this.router.navigate(['/myPosts', post.id]);
   }
-
+  //delete a post on click
   deletePost(post: { id: number; }){
     this.postService.delete(post.id)
       .pipe(first())
       .subscribe(() => this.loadPosts());
   }
+  //edit a post on click
   editPost(post: {id :number}){
-    this.router.navigate(['/posts/editing', post.id]);
+    this.router.navigate(['/posts/edit', post.id]);
   }
 
 }

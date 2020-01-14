@@ -1,17 +1,22 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Category, CategoryJson } from './category.model';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CategoryService {
 
-  constructor(private _http: HttpClient) { }
-
+  constructor(
+    private _http: HttpClient,
+    private route: ActivatedRoute
+  ) { }
+  
+  //wrap category object in a proper way
   registerCategory(category : Category){
     const body: Category = {
       title : category.title,
@@ -20,7 +25,7 @@ export class CategoryService {
 
     return this._http.post(`${environment.apiUrl}/categories`, body);
   }
-  
+  //get a category json
   getCategoriesJson() {
     return this._http.get<CategoryJson[]>(`${environment.apiUrl}/categories`).pipe(
       map(
@@ -45,4 +50,13 @@ export class CategoryService {
     return this._http.get<Category>(`${environment.apiUrl}/categories/${id}`);
   }
 
+  //edit category
+  editCategory(category : Category, id: number){
+    const body: Category = {
+      title : category.title,
+      text : category.text
+    }
+    const headers = new HttpHeaders({'Content-Type':'application/merge-patch+json; charset=utf-8'});
+    return this._http.patch(`${environment.apiUrl}/categories/${id}`, body, {headers: headers});
+  }
 }

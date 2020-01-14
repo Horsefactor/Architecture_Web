@@ -16,6 +16,7 @@ export class SignUpComponent implements OnInit {
     registerForm: FormGroup;
     loading = false;
     submitted = false;
+    edit = false;
 
     constructor(
         private formBuilder: FormBuilder,
@@ -30,7 +31,7 @@ export class SignUpComponent implements OnInit {
       }
     }
 
-
+  //init the form
   ngOnInit() {
     this.registerForm = this.formBuilder.group({
       password: ['', [Validators.required, Validators.minLength(6)]],
@@ -42,13 +43,14 @@ export class SignUpComponent implements OnInit {
       phoneNumber: ['', Validators.required],
       type: ['Applicant', Validators.required]
   });
-  
+    //load current user information if in edit mode
     if(this.router.url == '/account/edit' ){
+      this.edit = true;
       this.editUser(this.authService.currentUserValue);
     }
         
   }
-
+  //patch the form
   editUser(user:User){
     this.registerForm.patchValue({
       name: user.name,
@@ -68,25 +70,37 @@ export class SignUpComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
 
-        // reset alerts on submit
-        this.alertService.clear();
+    // reset alerts on submit
+    this.alertService.clear();
 
-        // stop here if form is invalid
-        if (this.registerForm.invalid) {
-            return;
-        }
+    // stop here if form is invalid
+    if (this.registerForm.invalid) {
+        return;
+    }
 
-        this.loading = true;
-        this.userService.registerUser(this.registerForm.value)
-            .pipe(first())
-            .subscribe(
-                data => {
-                    this.alertService.success('Registration successful', true);
-                    this.router.navigate(['/login']);
-                },
-                error => {
-                    this.alertService.error(error);
-                    this.loading = false;
-                });
+    this.loading = true;
+
+    if(this.edit){
+      this.userService.editUser(this.registerForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {this.router.navigate(['/account'])},
+          error => {this.loading = false}
+        )
+    }
+    
+    else {
+      this.userService.registerUser(this.registerForm.value)
+        .pipe(first())
+        .subscribe(
+            data => {
+                this.alertService.success('Registration successful', true);
+                this.router.navigate(['/login']);
+            },
+            error => {
+                this.alertService.error(error);
+                this.loading = false;
+            });
+    }
   }
 }

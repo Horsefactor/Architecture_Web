@@ -83,7 +83,7 @@ class __TwigTemplate_4bc479337a9759d8fcfd5845380295482d5137f4643e05db9cb014d7cfa
         echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new RuntimeError('Variable "form" does not exist.', 10, $this->source); })()), "content", [], "any", false, false, false, 10), 'row', ["attr" => ["placeholder" => "Tell them what you are looking for !"]]);
         // line 11
         echo "
-    <button type=submit class=\"btn btn-success\">
+    <button type=\"submit\" class=\"btn btn-success\">
         ";
         // line 13
         if ((isset($context["editMode"]) || array_key_exists("editMode", $context) ? $context["editMode"] : (function () { throw new RuntimeError('Variable "editMode" does not exist.', 13, $this->source); })())) {
@@ -138,7 +138,7 @@ class __TwigTemplate_4bc479337a9759d8fcfd5845380295482d5137f4643e05db9cb014d7cfa
             'class' : \"custom-control custom-checkbox\"}})}}
     {{form_row(form.content, {'attr' :
                     {'placeholder' : \"Tell them what you are looking for !\"}})}}
-    <button type=submit class=\"btn btn-success\">
+    <button type=\"submit\" class=\"btn btn-success\">
         {% if editMode %}
             Save
         {% else %}
@@ -146,6 +146,6 @@ class __TwigTemplate_4bc479337a9759d8fcfd5845380295482d5137f4643e05db9cb014d7cfa
         {% endif %}
     </button>
     {{form_end(form)}}
-{% endblock %}", "project/newPost.html.twig", "C:\\Users\\Thiba\\OneDrive\\Documents\\Programmation\\Architecture_Web\\demo\\templates\\project\\newPost.html.twig");
+{% endblock %}", "project/newPost.html.twig", "C:\\Users\\Thiba\\OneDrive\\Documents\\Ecam\\Programmation\\Architecture_Web\\demo\\templates\\project\\newPost.html.twig");
     }
 }

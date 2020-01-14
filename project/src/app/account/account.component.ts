@@ -20,6 +20,7 @@ export class AccountComponent implements OnInit {
   ngOnInit() {
   }
 
+  //delete the currentuser account
   deleteUser() {
     this.userService.delete(parseInt(this.authService.currentUserValue.id))
       .pipe(first())

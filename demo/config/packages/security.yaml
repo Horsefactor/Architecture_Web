@@ -5,7 +5,6 @@ security:
             
     # https://symfony.com/doc/current/security.html#where-do-User-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
         app_user_provider: 
             entity:
                 class: App\Entity\User
@@ -15,13 +14,12 @@ security:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
-        
-        main:
-            anonymous: true
-            stateless: true
 
+        api:
+            pattern: ^/api/
+            stateless: true
+            anonymous: true
             provider: app_user_provider
-            
             json_login:
                 check_path: /api/authentication_token
                 username_path: email
@@ -31,6 +29,11 @@ security:
             guard:
                 authenticators:
                     - lexik_jwt_authentication.jwt_token_authenticator
+        main:
+            anonymous: true
+
+            provider: app_user_provider
+            
             form_login: 
                 login_path: security_login
                 check_path: security_login
@@ -39,7 +42,6 @@ security:
             logout:
                 path: security_logout
                 target: home
-                
             # activate different ways to authenticate
             # https://symfony.com/doc/current/security.html#firewalls-authentication
 

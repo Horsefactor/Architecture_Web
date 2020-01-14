@@ -9,7 +9,7 @@ export class GetPost {
 }
 export class Post {
     content : string;
-    createdAT : Date;
+    createdAT? : Date;
     categories : string;
-    user : string;
+    user? : string;
 }

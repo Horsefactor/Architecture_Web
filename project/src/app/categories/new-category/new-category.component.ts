@@ -16,6 +16,7 @@ export class NewCategoryComponent implements OnInit {
   category : Category;
   loading = false;
   submitted = false;
+  edit = false;
   error = '';
 
   constructor(
@@ -26,20 +27,24 @@ export class NewCategoryComponent implements OnInit {
     private route: ActivatedRoute
     
   ) { }
-
+  
+  //init the form 
   ngOnInit() {
     this.catForm = this.formBuilder.group({
       title: ['', Validators.required],
       text: ['', [Validators.required, Validators.minLength(20)]]
     });
 
+    //put data if in editmode
     this.route.paramMap.subscribe(params => {
       const id =+ params.get('id');
       if(id){
+        this.edit = true;
         this.getCategory(id);
       }
     })
   }
+  //get a category by id to load the form
   getCategory(id:number){
     this.categoryService.getCategory(id)
       .pipe(first())
@@ -48,6 +53,7 @@ export class NewCategoryComponent implements OnInit {
         (error:any) =>console.log(error)
       );
   }
+  //patch the form with the data from the category
   editCategory(category:Category){
     this.catForm.patchValue({
       text: category.text,
@@ -66,8 +72,22 @@ export class NewCategoryComponent implements OnInit {
     if (this.catForm.invalid) {
       return;
     }
+    
     this.loading =true;
-
+    if(this.edit){
+      this.categoryService.editCategory(this.catForm.value, parseInt(this.route.snapshot.paramMap.get('id')))
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Category successfully saved', true);
+            this.router.navigate(['/account'])
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          }
+        );
+    }
     this.categoryService.registerCategory(this.catForm.value)
         .pipe(first())
         .subscribe(

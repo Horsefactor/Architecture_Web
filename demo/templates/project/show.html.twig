@@ -1,24 +1,25 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <article class="jumbotron">
-        <h2 class="display-3"> post n{{annonce.id}}</h2>
-        <h3 class="display-3">{{annonce.user.name}}, {{annonce.user.age}} ans</h3>
-        <p class ="lead">
-            <ul>
-                <li>email : {{annonce.user.email}}</li>
-                <li>phone number : {{annonce.user.phoneNumber}}</li>
-            </ul>
-        </p>
-        <hr class="my-4">
-        <div class ="metadata">
-            Writed down on {{annonce.createdAt | date('d/m/Y')}}
-            and at {{annonce.createdAt | date('H:i')}}
-        </div>
-        <div class ="content">
-            <img src="http://placehold.it/350x150">
-            <p>{{annonce.content}}</p>
-            <a href="{{ path('Annonce')}}" class="btn btn-primary">Return</a>
-        </div>
-    </article>
+ <div class="card border-light mb-3">
+    <h3 class="card-header"> annonce n°{{annonce.id}}</h3>
+    <div class="card-body">
+        <h4 class="card-title">{{annonce.user.name}} {{annonce.user.surname}}, {{annonce.user.age}} ans</h4>
+    </div>
+    <div class="card-body">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">email : {{annonce.user.email}}</li>
+            <li class="list-group-item">phone number : {{annonce.user.phoneNumber}}</li>
+        </ul>
+    </div>
+    <hr class="my-4">
+    <div class ="card-body">
+        <p>{{annonce.content}}</p>
+        <a href="{{ path('Annonce')}}" class="btn btn-primary">Return</a>
+    </div>
+    <div class ="card-footer text-muted">
+        Writed down on {{annonce.createdAt | date('d/m/Y')}}
+        and at {{annonce.createdAt | date('H:i')}}
+    </div>
+</div>
 {% endblock %}

@@ -30,6 +30,7 @@ export class PostFilterComponent implements OnInit {
     this.addCheckboxes();
   }
 
+  //add checkboxes to the form
   addCheckboxes(){
     this.categoryService.getCategoriesJson()
       .subscribe(
@@ -48,12 +49,14 @@ export class PostFilterComponent implements OnInit {
   onSubmit(){
     this.submitted = true;
 
+    //map checkboxes value assigned to true with their right name
     this.filterForm.value.categories = this.filterForm.value.categories
       .map((v, i) => v ? this.categories[i].id : null)
       .filter(v => v !== null);
 
     this.loading = true;
 
+    //use a service to transfer data between sibling component
     this.postService.changeCriteria(this.filterForm.value);
   }
 

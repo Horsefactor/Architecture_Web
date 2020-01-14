@@ -85,8 +85,11 @@ class __TwigTemplate_1d65da6bab6f48044e9a03f1e3eeb5ea211b227f79826501a66f51cf60a
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<section class=\"articles\">
-</section>
+        echo "<p>
+    Welcome on findAJob web site,<br/>
+    You need to login to get full functionnalities of the website,<br/>
+    Enjoy !
+</p>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -118,8 +121,11 @@ class __TwigTemplate_1d65da6bab6f48044e9a03f1e3eeb5ea211b227f79826501a66f51cf60a
 {% block title %}Hello ProjectController!{% endblock %}
 
 {% block body %}
-<section class=\"articles\">
-</section>
+<p>
+    Welcome on findAJob web site,<br/>
+    You need to login to get full functionnalities of the website,<br/>
+    Enjoy !
+</p>
 {% endblock %}", "project/index.html.twig", "C:\\Users\\Thiba\\OneDrive\\Documents\\Ecam\\Programmation\\Architecture_Web\\demo\\templates\\project\\index.html.twig");
     }
 }

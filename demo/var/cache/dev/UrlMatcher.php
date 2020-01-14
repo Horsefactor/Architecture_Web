@@ -21,6 +21,7 @@ return [
         '/main/delete_account' => [[['_route' => 'delete_account', '_controller' => 'App\\Controller\\ProjectController::delete_account'], null, null, null, false, false, null]],
         '/main/newCategory' => [[['_route' => 'new_category', '_controller' => 'App\\Controller\\ProjectController::newCat'], null, null, null, false, false, null]],
         '/main/newPost' => [[['_route' => 'new_post', '_controller' => 'App\\Controller\\ProjectController::newPost'], null, null, null, false, false, null]],
+        '/handleSearch' => [[['_route' => 'handleSearch', '_controller' => 'App\\Controller\\ProjectController::handleSearch'], null, null, null, false, false, null]],
         '/security/registration' => [[['_route' => 'security_registration', '_controller' => 'App\\Controller\\SecurityController::registration'], null, null, null, false, false, null]],
         '/security/login' => [[['_route' => 'security_login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'security_logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, null, null, false, false, null]],

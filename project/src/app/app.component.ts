@@ -28,15 +28,17 @@ export class AppComponent {
       })
   }
 
+  //logout route, redirect to login
   logout() {
       this.authService.logout();
       this.router.navigate(['/login']);
   }
 
+  //search from navigation bar
   searchById(id:number){
     this.router.navigate(['/posts', id]);
   }
-
+  //submit search
   onSubmit(){
     this.searchById(this.searchByIdForm.value.id);
   }

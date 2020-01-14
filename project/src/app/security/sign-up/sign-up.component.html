@@ -1,7 +1,10 @@
 <div class="card text-white border-success bg-primary mb-3">
     <div class="container">
         <br/>
-        <h2>let's create an account !</h2>
+        <h2>
+            <div *ngIf="edit; else elseBlock">let's edit your account information !</div>
+            <ng-template #elseBlock>let's create an account !</ng-template>
+        </h2>
         <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
             <fieldset>
                 <div class="form-group">
@@ -68,7 +71,8 @@
                 <div class="form-group">
                     <button [disabled]="loading" class="btn btn-success btn-lg btn-block">
                         <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
-                        Sign up
+                        <div *ngIf="edit; else elseBlock">Save</div>
+                        <ng-template #elseBlock>Sign up</ng-template>
                     </button>
                     <a routerLink="/login" class="btn btn-link">Cancel</a>
                 </div>

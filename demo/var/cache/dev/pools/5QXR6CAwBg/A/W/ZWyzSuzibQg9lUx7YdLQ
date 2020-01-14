@@ -98,6 +98,12 @@ return $getExpiry ? PHP_INT_MAX : Hydrator::hydrate(
                             'json' => [
                                 'application/merge-patch+json',
                             ],
+                            'jsonapi' => [
+                                'application/vnd.api+json',
+                            ],
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
                         ],
                         'output_formats' => [
                             'jsonld' => [

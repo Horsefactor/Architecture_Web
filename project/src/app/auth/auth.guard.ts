@@ -12,6 +12,7 @@ export class AuthGuard implements CanActivate {
     private router: Router
   ){}
   
+  //check if the user who call this action is connected
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot){
     const currentUser = this.authService.currentUserValue;
     if (currentUser){

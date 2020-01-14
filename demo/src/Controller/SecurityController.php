@@ -5,7 +5,7 @@ namespace App\Controller;
 use App\Entity\User;
 use App\Form\RegistrationFormType;
 use Symfony\Component\HttpFoundation\Request;
-use Doctrine\Common\Persistence\ObjectManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
@@ -16,7 +16,7 @@ class SecurityController extends Controller
      * @Route("/security/registration", name="security_registration")
      * @Route("/main/{id}/edit_my_data", name="data_edit")
      */
-    public function registration(User $user = null, Request $request, ObjectManager $manager,
+    public function registration(User $user = null, Request $request, EntityManagerInterface $manager,
                                 UserPasswordEncoderInterface $encoder){
         if(!$user){
             $user = new User();

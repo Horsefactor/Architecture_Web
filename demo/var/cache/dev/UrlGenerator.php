@@ -27,6 +27,7 @@ return [
     'new_post' => [[], ['_controller' => 'App\\Controller\\ProjectController::newPost'], [], [['text', '/main/newPost']], [], []],
     'post_edit' => [['id'], ['_controller' => 'App\\Controller\\ProjectController::newPost'], [], [['text', '/edit'], ['variable', '/', '[^/]++', 'id', true], ['text', '/main']], [], []],
     'showAnnonce' => [['id'], ['_controller' => 'App\\Controller\\ProjectController::show'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/main']], [], []],
+    'handleSearch' => [[], ['_controller' => 'App\\Controller\\ProjectController::handleSearch'], [], [['text', '/handleSearch']], [], []],
     'security_registration' => [[], ['_controller' => 'App\\Controller\\SecurityController::registration'], [], [['text', '/security/registration']], [], []],
     'data_edit' => [['id'], ['_controller' => 'App\\Controller\\SecurityController::registration'], [], [['text', '/edit_my_data'], ['variable', '/', '[^/]++', 'id', true], ['text', '/main']], [], []],
     'security_login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/security/login']], [], []],

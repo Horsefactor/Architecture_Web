@@ -65,52 +65,55 @@ class __TwigTemplate_66070097383e75e16666f68740646e137b94d0bea3ea1968245d70e6e29
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "    <article class=\"jumbotron\">
-        <h2 class=\"display-3\"> post n";
+        echo " <div class=\"card border-light mb-3\">
+    <h3 class=\"card-header\"> annonce n°";
         // line 5
         echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 5, $this->source); })()), "id", [], "any", false, false, false, 5), "html", null, true);
-        echo "</h2>
-        <h3 class=\"display-3\">";
-        // line 6
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6), "name", [], "any", false, false, false, 6), "html", null, true);
+        echo "</h3>
+    <div class=\"card-body\">
+        <h4 class=\"card-title\">";
+        // line 7
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 7, $this->source); })()), "user", [], "any", false, false, false, 7), "name", [], "any", false, false, false, 7), "html", null, true);
+        echo " ";
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 7, $this->source); })()), "user", [], "any", false, false, false, 7), "surname", [], "any", false, false, false, 7), "html", null, true);
         echo ", ";
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 6, $this->source); })()), "user", [], "any", false, false, false, 6), "age", [], "any", false, false, false, 6), "html", null, true);
-        echo " ans</h3>
-        <p class =\"lead\">
-            <ul>
-                <li>email : ";
-        // line 9
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 9, $this->source); })()), "user", [], "any", false, false, false, 9), "email", [], "any", false, false, false, 9), "html", null, true);
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 7, $this->source); })()), "user", [], "any", false, false, false, 7), "age", [], "any", false, false, false, 7), "html", null, true);
+        echo " ans</h4>
+    </div>
+    <div class=\"card-body\">
+        <ul class=\"list-group list-group-flush\">
+            <li class=\"list-group-item\">email : ";
+        // line 11
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 11, $this->source); })()), "user", [], "any", false, false, false, 11), "email", [], "any", false, false, false, 11), "html", null, true);
         echo "</li>
-                <li>phone number : ";
-        // line 10
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 10, $this->source); })()), "user", [], "any", false, false, false, 10), "phoneNumber", [], "any", false, false, false, 10), "html", null, true);
+            <li class=\"list-group-item\">phone number : ";
+        // line 12
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 12, $this->source); })()), "user", [], "any", false, false, false, 12), "phoneNumber", [], "any", false, false, false, 12), "html", null, true);
         echo "</li>
-            </ul>
-        </p>
-        <hr class=\"my-4\">
-        <div class =\"metadata\">
-            Writed down on ";
-        // line 15
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 15, $this->source); })()), "createdAt", [], "any", false, false, false, 15), "d/m/Y"), "html", null, true);
-        echo "
-            and at ";
-        // line 16
-        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 16, $this->source); })()), "createdAt", [], "any", false, false, false, 16), "H:i"), "html", null, true);
-        echo "
-        </div>
-        <div class =\"content\">
-            <img src=\"http://placehold.it/350x150\">
-            <p>";
-        // line 20
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 20, $this->source); })()), "content", [], "any", false, false, false, 20), "html", null, true);
+        </ul>
+    </div>
+    <hr class=\"my-4\">
+    <div class =\"card-body\">
+        <p>";
+        // line 17
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 17, $this->source); })()), "content", [], "any", false, false, false, 17), "html", null, true);
         echo "</p>
-            <a href=\"";
-        // line 21
+        <a href=\"";
+        // line 18
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Annonce");
         echo "\" class=\"btn btn-primary\">Return</a>
-        </div>
-    </article>
+    </div>
+    <div class =\"card-footer text-muted\">
+        Writed down on ";
+        // line 21
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 21, $this->source); })()), "createdAt", [], "any", false, false, false, 21), "d/m/Y"), "html", null, true);
+        echo "
+        and at ";
+        // line 22
+        echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["annonce"]) || array_key_exists("annonce", $context) ? $context["annonce"] : (function () { throw new RuntimeError('Variable "annonce" does not exist.', 22, $this->source); })()), "createdAt", [], "any", false, false, false, 22), "H:i"), "html", null, true);
+        echo "
+    </div>
+</div>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -132,7 +135,7 @@ class __TwigTemplate_66070097383e75e16666f68740646e137b94d0bea3ea1968245d70e6e29
 
     public function getDebugInfo()
     {
-        return array (  110 => 21,  106 => 20,  99 => 16,  95 => 15,  87 => 10,  83 => 9,  75 => 6,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
+        return array (  113 => 22,  109 => 21,  103 => 18,  99 => 17,  91 => 12,  87 => 11,  76 => 7,  71 => 5,  68 => 4,  58 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
@@ -140,26 +143,27 @@ class __TwigTemplate_66070097383e75e16666f68740646e137b94d0bea3ea1968245d70e6e29
         return new Source("{% extends 'base.html.twig' %}
 
 {% block body %}
-    <article class=\"jumbotron\">
-        <h2 class=\"display-3\"> post n{{annonce.id}}</h2>
-        <h3 class=\"display-3\">{{annonce.user.name}}, {{annonce.user.age}} ans</h3>
-        <p class =\"lead\">
-            <ul>
-                <li>email : {{annonce.user.email}}</li>
-                <li>phone number : {{annonce.user.phoneNumber}}</li>
-            </ul>
-        </p>
-        <hr class=\"my-4\">
-        <div class =\"metadata\">
-            Writed down on {{annonce.createdAt | date('d/m/Y')}}
-            and at {{annonce.createdAt | date('H:i')}}
-        </div>
-        <div class =\"content\">
-            <img src=\"http://placehold.it/350x150\">
-            <p>{{annonce.content}}</p>
-            <a href=\"{{ path('Annonce')}}\" class=\"btn btn-primary\">Return</a>
-        </div>
-    </article>
-{% endblock %}", "project/show.html.twig", "C:\\Users\\Thiba\\OneDrive\\Documents\\Programmation\\Architecture_Web\\demo\\templates\\project\\show.html.twig");
+ <div class=\"card border-light mb-3\">
+    <h3 class=\"card-header\"> annonce n°{{annonce.id}}</h3>
+    <div class=\"card-body\">
+        <h4 class=\"card-title\">{{annonce.user.name}} {{annonce.user.surname}}, {{annonce.user.age}} ans</h4>
+    </div>
+    <div class=\"card-body\">
+        <ul class=\"list-group list-group-flush\">
+            <li class=\"list-group-item\">email : {{annonce.user.email}}</li>
+            <li class=\"list-group-item\">phone number : {{annonce.user.phoneNumber}}</li>
+        </ul>
+    </div>
+    <hr class=\"my-4\">
+    <div class =\"card-body\">
+        <p>{{annonce.content}}</p>
+        <a href=\"{{ path('Annonce')}}\" class=\"btn btn-primary\">Return</a>
+    </div>
+    <div class =\"card-footer text-muted\">
+        Writed down on {{annonce.createdAt | date('d/m/Y')}}
+        and at {{annonce.createdAt | date('H:i')}}
+    </div>
+</div>
+{% endblock %}", "project/show.html.twig", "C:\\Users\\Thiba\\OneDrive\\Documents\\Ecam\\Programmation\\Architecture_Web\\demo\\templates\\project\\show.html.twig");
     }
 }

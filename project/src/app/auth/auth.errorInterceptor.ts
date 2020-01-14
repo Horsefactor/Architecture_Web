@@ -9,6 +9,7 @@ import { AuthService } from '../shared/security/auth.service';
 export class ErrorInterceptor implements HttpInterceptor {
     constructor(private authService: AuthService) { }
 
+    //intercept errors from api and throw them in the console
     intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
         return next.handle(request).pipe(catchError(err => {
             if (err.status === 401) {

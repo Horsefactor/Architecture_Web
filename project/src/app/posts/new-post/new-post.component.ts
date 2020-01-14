@@ -17,6 +17,7 @@ export class NewPostComponent implements OnInit {
   postForm: FormGroup;
   loading = false;
   submitted = false;
+  edit = false;
   public categories: CategoryJson[];
 
   constructor(
@@ -27,22 +28,25 @@ export class NewPostComponent implements OnInit {
         private categoryService: CategoryService,
         private route: ActivatedRoute
   ) {}
- 
+  
+  //init the form
   ngOnInit() {
     this.postForm = this.formBuilder.group({
       content: ['', [Validators.required, Validators.minLength(50)]],
       categories: new FormArray([])
       });
-  
+      
       this.addCheckboxes();
-
+      //patch the form thanks to the post id if in editmode
       this.route.paramMap.subscribe(params => {
         const id =+ params.get('id');
         if(id){
+          this.edit = true;
           this.getPost(id);
         }
       })
   }
+  //get a post by his id to patch the form
   getPost(id:number){
     this.postService.getPost(id)
       .pipe(first())
@@ -51,12 +55,13 @@ export class NewPostComponent implements OnInit {
         (error:any) =>console.log(error)
       );
   }
+  //patch the post
   editPost(post:GetPost){
     this.postForm.patchValue({
       content: post.content
     });
   }
-
+  //add categories checkboxes to the form
   addCheckboxes(){
     this.categoryService.getCategoriesJson()
       .subscribe(
@@ -79,23 +84,46 @@ export class NewPostComponent implements OnInit {
     // reset alerts on submit
     this.alertService.clear();
 
+    // stop here if form is invalid
+    if (this.postForm.invalid) {
+      return;
+    }
+    
+    //map checkboxes value assigned to true with their right name
     this.postForm.value.categories = this.postForm.value.categories
       .map((v, i) => v ? this.categories[i].id : null)
       .filter(v => v !== null);
     
     this.loading = true;
-    
-    this.postService.addPost(this.postForm.value)
-      .pipe(first())
-      .subscribe(
-        data => {
-          this.alertService.success('Post successfully added', true)
-          this.router.navigate(['/myPosts']);
-        },
-        error => {
-          this.alertService.error(error);
-          this.loading=false;
-        }
-      )
+
+    if(this.edit){
+      this.postService.editPost(this.postForm.value, parseInt(this.route.snapshot.paramMap.get('id')))
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Post successfully saved', true);
+            this.router.navigate(['/myPosts'])
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading = false;
+          }
+        )
+    }
+
+    else{
+      this.postService.addPost(this.postForm.value)
+        .pipe(first())
+        .subscribe(
+          data => {
+            this.alertService.success('Post successfully added', true);
+            this.router.navigate(['/myPosts']);
+          },
+          error => {
+            this.alertService.error(error);
+            this.loading=false;
+          }
+        )
+    }
   }
 }
